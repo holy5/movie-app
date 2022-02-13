@@ -42,7 +42,7 @@ const ExploreData: FC<props> = ({ params, configs, index }) => {
       next={() => setSize((size) => size + 1)}
       hasMore={!error && data?.slice(-1)?.[0]?.length !== 0}
       loader={
-        <div className="justify-center  text-text">
+        <div className="justify-center text-text">
           <h4 className="text-3xl font-bold">Loading...</h4>
         </div>
       }
