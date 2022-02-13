@@ -34,3 +34,7 @@ body {
 .slider::-moz-range-thumb {
   @apply w-[12px] h-[12px] bg-white cursor-pointer rounded-full appearance-none;
 }
+
+.lazy-img-full {
+  @apply w-full h-full;
+}

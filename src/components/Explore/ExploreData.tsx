@@ -41,7 +41,11 @@ const ExploreData: FC<props> = ({ params, configs, index }) => {
       dataLength={data?.length || 0}
       next={() => setSize((size) => size + 1)}
       hasMore={!error && data?.slice(-1)?.[0]?.length !== 0}
-      loader={<h4>Loading...</h4>}
+      loader={
+        <div className="justify-center  text-text">
+          <h4 className="text-3xl font-bold">Loading...</h4>
+        </div>
+      }
       endMessage={
         <div className="py-5 text-3xl font-bold text-center text-text text-md">
           Nothing more to see
