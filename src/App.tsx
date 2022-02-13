@@ -3,16 +3,39 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LandingPage from "./Pages/LandingPage";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Details from "./Pages/Details";
+import "react-loading-skeleton/dist/skeleton.css";
+
+import Explore from "./Pages/Explore";
+import Error from "./components/UI/Error";
+import { SWRConfig } from "swr";
+import Player from "./Pages/MoviePlayer";
+import MoviePlayer from "./Pages/MoviePlayer";
+import TvPlayer from "./Pages/TvPlayer";
+import Category from "./Pages/Category";
+import { SkeletonTheme } from "react-loading-skeleton";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/detail" element={<Details />} />
-      </Routes>
-    </Router>
+    <SWRConfig
+      value={{
+        revalidateOnFocus: false,
+        shouldRetryOnError: false,
+      }}
+    >
+      <SkeletonTheme baseColor="#202020" highlightColor="#444">
+        <Router>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/movie/:id" element={<MoviePlayer />} />
+            <Route path="/tv/:id" element={<TvPlayer />} />
+            <Route path="/category/:id" element={<Category />} />
+            <Route path="/explore" element={<Explore />} />
+            <Route path="/player" element={<Player />} />
+            <Route path="*" element={<Error />} />
+          </Routes>
+        </Router>
+      </SkeletonTheme>
+    </SWRConfig>
   );
 }
 
