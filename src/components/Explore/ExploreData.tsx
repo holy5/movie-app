@@ -31,10 +31,7 @@ const ExploreData: FC<props> = ({ params, configs, index }) => {
     { revalidateFirstPage: false }
   );
 
-  console.log(data);
   if (error) return <Error />;
-
-  // console.log({ id: data.id, category: data.category });
 
   return (
     <InfiniteScroll

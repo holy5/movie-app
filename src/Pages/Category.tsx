@@ -12,7 +12,6 @@ const Category = () => {
   const { id } = useParams() as { id: string };
   const { data, error } = useSWR(`search-config`, () => searchConfig());
 
-  console.log(data);
   let categoryType;
 
   if (data) {
@@ -21,7 +20,6 @@ const Category = () => {
       ?.items.find((item) => item.params === id);
   }
 
-  console.log(categoryType);
   if (error) return <Error />;
 
   return (

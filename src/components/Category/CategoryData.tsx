@@ -24,12 +24,11 @@ const CategoryData: FC<CategoryDataProps> = ({ id, categoryType }) => {
   } = useSWRInfinite(getKey, (lim) =>
     apiMethod.getCategoryItems(id, lim.split("-").slice(-1)[0])
   );
-  console.log(categoryData);
   return (
     <>
       {categoryData && (
         <InfiniteScroll
-          dataLength={categoryData[0].length || 0}
+          dataLength={categoryData?.length || 0}
           next={() => setSize((size) => size + 1)}
           hasMore={!error && categoryData?.slice(-1)?.[0]?.length !== 0}
           loader={

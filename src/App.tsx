@@ -13,6 +13,7 @@ import MoviePlayer from "./Pages/MoviePlayer";
 import TvPlayer from "./Pages/TvPlayer";
 import Category from "./Pages/Category";
 import { SkeletonTheme } from "react-loading-skeleton";
+import Search from "./Pages/Search";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path="/tv/:id" element={<TvPlayer />} />
             <Route path="/category/:id" element={<Category />} />
             <Route path="/explore" element={<Explore />} />
+            <Route path="/search" element={<Search />} />
             <Route path="/player" element={<Player />} />
             <Route path="*" element={<Error />} />
           </Routes>

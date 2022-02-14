@@ -9,7 +9,6 @@ interface EpisodesProps {
 }
 
 const Episodes: FC<EpisodesProps> = ({ data, episodeIndex }) => {
-  console.log(data);
   return (
     <>
       <h1 className="text-xl font-medium">Episodes</h1>

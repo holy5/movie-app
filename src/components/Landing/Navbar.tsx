@@ -3,6 +3,7 @@ import { BiSearch } from "react-icons/bi";
 import { FaBars } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import { NavbarProps } from "../../types";
+import SearchBox from "../Search/SearchBox";
 
 function Navbar(NavbarProps: NavbarProps) {
   const { hiddenCondition, absolute } = NavbarProps;
@@ -41,14 +42,7 @@ function Navbar(NavbarProps: NavbarProps) {
             Explore
           </Link>
         </div>
-        <div className="relative flex items-center border-2 rounded-full md:border-none border-text md:px-2 md:py-2 xl:border-solid xl:w-[50%] xl:py-1">
-          <input
-            type="text"
-            placeholder="Search anything"
-            className="px-3 w-[88%] py-1 bg-transparent outline-none md:placeholder:text-xl md:hidden xl:inline-block xl:placeholder:text-xl "
-          />
-          <BiSearch className="absolute right-0 mr-2 text-2xl text-text md:text-4xl xl:text-2xl" />
-        </div>
+        <SearchBox />
       </div>
       <FaBars className="text-2xl md:hidden" />
     </div>

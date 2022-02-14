@@ -8,8 +8,6 @@ import Navbar from "../components/Landing/Navbar";
 const Explore: FC = () => {
   const { data, error } = useSWR("search-config", () => searchConfig());
 
-  console.log(data);
-
   return (
     <div>
       <Navbar absolute={false} />

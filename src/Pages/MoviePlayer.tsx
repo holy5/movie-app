@@ -12,7 +12,6 @@ function MoviePlayer() {
   const { data, error } = useSWR(`movie-${id}`, () =>
     apiMethod.getMovieDetails(id as string)
   );
-  console.log(data);
 
   if (error) return <Error />;
 

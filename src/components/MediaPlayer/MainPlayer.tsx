@@ -52,8 +52,6 @@ function MainPlayer(props: props) {
   //   localStorage.setItem("film-recent", JSON.stringify(existing));
   // }, [data]);
 
-  console.log(data);
-
   return (
     <div className="min-h-[100vh] xl:px-16 xl:py-12">
       <div className="flex gap-x-5">

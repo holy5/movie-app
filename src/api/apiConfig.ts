@@ -1,3 +1,4 @@
+import { createKeywordTypeNode } from "typescript";
 import { apiParams, DetailType, SearchConfig } from "../types";
 import axios from "./axios";
 
@@ -163,6 +164,25 @@ export const apiMethod = {
         params: "",
         category: categoryId,
         sort,
+      })
+    ).data.data.searchResults;
+  },
+  getSearchKeyword: async (keyword: string) => {
+    return (
+      await axios.post("search/searchLenovo", {
+        searchKeyword: keyword,
+        size: 12,
+      })
+    ).data.data.searchResults;
+  },
+
+  searchWithKeyword: async (keyword: string) => {
+    return (
+      await axios.post("search/v1/searchWithKeyWord", {
+        searchKeyWord: keyword,
+        size: 50,
+        sort: "",
+        searchType: "",
       })
     ).data.data.searchResults;
   },

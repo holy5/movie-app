@@ -21,8 +21,6 @@ const TvPlayer = () => {
 
   if (error) return <Error />;
 
-  console.log(data);
-
   return (
     <>
       <Navbar absolute={false} />

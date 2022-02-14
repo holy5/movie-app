@@ -20,8 +20,6 @@ const AllMovies: FC<{ error: any; data: any }> = ({ error, data }) => {
     setConfigs(clone);
   };
 
-  console.log(configs);
-
   return (
     <>
       {error && <Error />}
