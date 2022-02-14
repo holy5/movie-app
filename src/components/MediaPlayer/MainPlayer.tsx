@@ -29,29 +29,6 @@ function MainPlayer(props: props) {
     episodeIndex ? `-${episodeIndex}` : ""
   }`;
 
-  // useEffect(() => {
-  //   if (!data) return;
-  //   let existing = JSON.parse(localStorage.getItem("film-recent") || "[]") as {
-  //     id: string;
-  //     category: number;
-  //     coverVerticalUrl: string;
-  //     name: string;
-  //   }[];
-
-  //   if (!Array.isArray(existing)) return;
-
-  //   existing = existing.filter((item) => item.id !== data.id);
-
-  //   existing.unshift({
-  //     id: data.id,
-  //     category: data.category,
-  //     coverVerticalUrl: data.coverVerticalUrl,
-  //     name: data.name,
-  //   });
-
-  //   localStorage.setItem("film-recent", JSON.stringify(existing));
-  // }, [data]);
-
   return (
     <div className="min-h-[100vh] xl:px-16 xl:py-12">
       <div className="flex gap-x-5">

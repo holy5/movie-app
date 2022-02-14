@@ -2,7 +2,7 @@ import MovieItem from "../Items/MovieItem";
 import Slider from "react-slick";
 import { NextArrow, PrevArrow } from "../../Custom/CustomArrows";
 
-import Skeleton from "../Items/Skeleton";
+import Skeleton from "../UI/Skeleton";
 import { resizeImage } from "../../Helpers/misc";
 
 import { FC } from "react";

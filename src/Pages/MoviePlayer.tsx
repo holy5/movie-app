@@ -6,6 +6,7 @@ import Footer from "../components/Landing/Footer";
 import Navbar from "../components/Landing/Navbar";
 import MainPlayer from "../components/MediaPlayer/MainPlayer";
 import Error from "../components/UI/Error";
+import PlayerLoadingSkeleton from "../components/UI/PlayerLoadingSkeleton";
 
 function MoviePlayer() {
   const { id } = useParams();
@@ -18,12 +19,14 @@ function MoviePlayer() {
   return (
     <div>
       <Navbar absolute={false} />
-      {data && (
+      {data ? (
         <MainPlayer
           sources={data?.sources}
           subtitles={data?.subtitles}
           data={data.data}
         />
+      ) : (
+        <PlayerLoadingSkeleton />
       )}
       <Footer />
     </div>

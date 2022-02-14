@@ -6,6 +6,7 @@ import Footer from "../components/Landing/Footer";
 import Navbar from "../components/Landing/Navbar";
 import MainPlayer from "../components/MediaPlayer/MainPlayer";
 import Error from "../components/UI/Error";
+import PlayerLoadingSkeleton from "../components/UI/PlayerLoadingSkeleton";
 import useQueryParams from "../hooks/useQueryParams";
 
 const TvPlayer = () => {
@@ -24,13 +25,15 @@ const TvPlayer = () => {
   return (
     <>
       <Navbar absolute={false} />
-      {data && (
+      {data ? (
         <MainPlayer
           data={data?.data}
           sources={data?.sources}
           subtitles={data?.subtitles}
           episodeIndex={episodeIndex}
         />
+      ) : (
+        <PlayerLoadingSkeleton />
       )}
       <Footer />
     </>

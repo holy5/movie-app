@@ -1,7 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
 import { NextArrow, PrevArrow } from "../../Custom/CustomArrows";
-import MovieItem from "./MovieItem";
+import MovieItem from "../Items/MovieItem";
 
 function Skeleton() {
   let settings = {

@@ -80,12 +80,14 @@ function MainMovie() {
                     {data?.data.year}
                   </span>
                 </span>
-                <span className="flex items-center gap-x-1 md:gap-x-2 lg:gap-x-1">
-                  <MdOutlineWatchLater className="text-xl md:text-3xl lg:text-xl" />
-                  <span className="md:text-2xl lg:text-base">
-                    {data?.data.episodeCount}
+                {data.data.episodeCount > 0 && (
+                  <span className="flex items-center gap-x-1 md:gap-x-2 lg:gap-x-1">
+                    <MdOutlineWatchLater className="text-xl md:text-3xl lg:text-xl" />
+                    <span className="md:text-2xl lg:text-base">
+                      {data?.data.episodeCount}
+                    </span>
                   </span>
-                </span>
+                )}
               </span>
             ) : (
               <div className="flex items-center gap-x-3 md:gap-x-5">
