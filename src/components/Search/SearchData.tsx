@@ -4,6 +4,7 @@ import useSWR from "swr";
 import { apiMethod } from "../../api/apiConfig";
 import { resizeImage } from "../../Helpers/misc";
 import MovieItem from "../Items/MovieItem";
+import Error from "../UI/Error";
 
 interface SearchDataProps {
   keyword: string;
@@ -13,6 +14,8 @@ const SearchData: FC<SearchDataProps> = ({ keyword }) => {
   const { data, error } = useSWR(`search-for-${keyword}`, () =>
     apiMethod.searchWithKeyword(keyword)
   );
+
+  if (error) return <Error />;
 
   if (data && data.length === 0)
     return (

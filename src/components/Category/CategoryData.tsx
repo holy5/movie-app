@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import useSWRInfinite from "swr/infinite";
 import { apiMethod } from "../../api/apiConfig";
 import { resizeImage } from "../../Helpers/misc";
+import { CategoryItemType } from "../../types";
 import MovieItem from "../Items/MovieItem";
 
 interface CategoryDataProps {
@@ -11,10 +12,9 @@ interface CategoryDataProps {
   categoryType: string;
 }
 
-const CategoryData: FC<CategoryDataProps> = ({ id, categoryType }) => {
-  const getKey = (_: any, previousPageData: any) => {
+const CategoryData: FC<CategoryDataProps> = ({ id }) => {
+  const getKey = (_: number, previousPageData: CategoryItemType[] | null) => {
     if (previousPageData && previousPageData.length === 0) return null;
-
     return `${id}-${previousPageData?.slice(-1)?.[0]?.sort || ""}`;
   };
   const {
@@ -24,6 +24,7 @@ const CategoryData: FC<CategoryDataProps> = ({ id, categoryType }) => {
   } = useSWRInfinite(getKey, (lim) =>
     apiMethod.getCategoryItems(id, lim.split("-").slice(-1)[0])
   );
+
   return (
     <>
       {categoryData && (
@@ -44,8 +45,14 @@ const CategoryData: FC<CategoryDataProps> = ({ id, categoryType }) => {
         >
           <div className="grid grid-cols-8 mt-5 gap-x-6">
             {categoryData
-              ?.reduce((acc: any, cur: any) => [...acc, ...cur], [])
-              .map((item: any) => {
+              ?.reduce(
+                (acc: CategoryItemType[], cur: CategoryItemType[]) => [
+                  ...acc,
+                  ...cur,
+                ],
+                []
+              )
+              .map((item: CategoryItemType) => {
                 return (
                   <Link
                     to={

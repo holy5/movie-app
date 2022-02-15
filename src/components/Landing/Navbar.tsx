@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-import { BiSearch } from "react-icons/bi";
 import { FaBars } from "react-icons/fa";
 import { Link, useLocation } from "react-router-dom";
 import { NavbarProps } from "../../types";
@@ -21,6 +19,7 @@ function Navbar(NavbarProps: NavbarProps) {
       >
         Movjp
       </Link>
+
       <div className="flex items-center justify-between xl:w-[60%] md:w-full md:ml-10">
         <div className="hidden text-2xl font-bold md:flex gap-x-5 xl:text-xl">
           <Link
@@ -31,6 +30,7 @@ function Navbar(NavbarProps: NavbarProps) {
           >
             Home
           </Link>
+
           <Link
             to="/explore"
             className={`${

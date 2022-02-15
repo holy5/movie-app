@@ -14,7 +14,7 @@ function Footer() {
           <BsTwitter />
         </div>
         <p className="mt-4 text-base font-semibold md:text-2xl xl:mt-2 xl:text-base xl:font-medium">
-          Movjip.All rights reserved
+          Movjp.All rights reserved
         </p>
       </div>
     </div>

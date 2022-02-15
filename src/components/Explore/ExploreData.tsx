@@ -6,6 +6,7 @@ import { apiMethod } from "../../api/apiConfig";
 import Error from "../UI/Error";
 import { Link } from "react-router-dom";
 import { resizeImage } from "../../Helpers/misc";
+import { CategoryItemType } from "../../types";
 
 interface props {
   params: string;
@@ -16,7 +17,7 @@ interface props {
 }
 
 const ExploreData: FC<props> = ({ params, configs, index }) => {
-  const getKey = (_: any, previousPageData: any) => {
+  const getKey = (_: number, previousPageData: CategoryItemType[] | null) => {
     if (previousPageData && previousPageData.length === 0) return null;
 
     return `explore-${index}-${JSON.stringify(configs)}-${
@@ -30,7 +31,7 @@ const ExploreData: FC<props> = ({ params, configs, index }) => {
       apiMethod.advancedSearch(params, configs, key.split("-").slice(-1)[0]),
     { revalidateFirstPage: false }
   );
-
+  console.log(data);
   if (error) return <Error />;
 
   return (
@@ -52,7 +53,7 @@ const ExploreData: FC<props> = ({ params, configs, index }) => {
       <div className="grid grid-cols-8 mt-5 gap-x-6">
         {data
           ?.reduce((acc, cur) => [...acc, ...cur], [])
-          .map((item: any) => {
+          .map((item: CategoryItemType) => {
             return (
               <Link
                 to={

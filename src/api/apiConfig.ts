@@ -1,5 +1,4 @@
-import { createKeywordTypeNode } from "typescript";
-import { apiParams, DetailType, SearchConfig } from "../types";
+import { apiParams, SearchConfig } from "../types";
 import axios from "./axios";
 
 export const searchConfig = async (): Promise<SearchConfig[]> => {

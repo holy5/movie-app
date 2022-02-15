@@ -7,10 +7,11 @@ import { resizeImage } from "../../Helpers/misc";
 
 import { FC } from "react";
 import { Link } from "react-router-dom";
+import { HomeSliderListProps } from "../../types";
 
 interface HomeSliderProps {
   title: string;
-  list: any | undefined;
+  list: HomeSliderListProps[] | undefined;
 }
 
 const HomeSlider: FC<HomeSliderProps> = ({ title, list }) => {
@@ -65,7 +66,7 @@ const HomeSlider: FC<HomeSliderProps> = ({ title, list }) => {
           {...settings}
           className="flex flex-row mx-[-4px] md:mx-[-8px] lg:mx-[-4px] justify-center overflow-hidden "
         >
-          {list?.map((movie: any, index: number) => {
+          {list?.map((movie, index) => {
             return (
               <Link
                 key={index}

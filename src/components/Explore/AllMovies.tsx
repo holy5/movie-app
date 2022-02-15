@@ -1,8 +1,14 @@
 import React, { FC, useEffect, useState } from "react";
+import { SearchConfig } from "../../types";
 import Error from "../UI/Error";
 import ExploreData from "./ExploreData";
 
-const AllMovies: FC<{ error: any; data: any }> = ({ error, data }) => {
+interface AllMoviesProps {
+  error: any;
+  data: SearchConfig[];
+}
+
+const AllMovies: FC<AllMoviesProps> = ({ error, data }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const [configs, setConfigs] = useState(
@@ -14,9 +20,7 @@ const AllMovies: FC<{ error: any; data: any }> = ({ error, data }) => {
 
   const handleConfigChange = (name: string, value: string) => {
     const clone = JSON.parse(JSON.stringify(data[activeIndex]));
-
-    clone[name] = value;
-
+    clone.name = value;
     setConfigs(clone);
   };
 
@@ -26,7 +30,7 @@ const AllMovies: FC<{ error: any; data: any }> = ({ error, data }) => {
       {!data && <p>Loading...</p>}
       <div className="relative xl:px-8 ">
         <div className="flex flex-row font-medium xl:mt-10 text-text xl:gap-x-4">
-          {data?.map((item: any, index: number) => {
+          {data?.map((item, index) => {
             return (
               <div
                 className={`${
@@ -45,7 +49,7 @@ const AllMovies: FC<{ error: any; data: any }> = ({ error, data }) => {
           })}
         </div>
         <div className="flex flex-row mt-6 gap-x-3">
-          {data[activeIndex]?.screeningItems.map((item: any, index: number) => {
+          {data[activeIndex]?.screeningItems.map((item, index) => {
             return (
               <select
                 key={index}
@@ -58,7 +62,7 @@ const AllMovies: FC<{ error: any; data: any }> = ({ error, data }) => {
                   )
                 }
               >
-                {item.items.map((select: any, index: number) => {
+                {item.items.map((select, index) => {
                   return (
                     <option value={select.params} key={index}>
                       {select.name}

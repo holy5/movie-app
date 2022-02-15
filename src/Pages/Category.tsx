@@ -4,7 +4,6 @@ import useSWR from "swr";
 
 import { searchConfig } from "../api/apiConfig";
 import CategoryData from "../components/Category/CategoryData";
-import MovieItem from "../components/Items/MovieItem";
 import Navbar from "../components/Landing/Navbar";
 import Error from "../components/UI/Error";
 

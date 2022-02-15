@@ -5,19 +5,19 @@ import Navbar from "../components/Landing/Navbar";
 import HomeSlider from "../components/Landing/HomeSlider";
 import useSWRInfinite from "swr/infinite";
 import { apiMethod } from "../api/apiConfig";
-import { useLocation } from "react-router-dom";
 import Error from "../components/UI/Error";
+import { HomeSection } from "../types";
 
 function LandingPage() {
   const getKey = (index: number) => `home-${index || 0}`;
-  const location = useLocation();
 
-  const { data, error, setSize } = useSWRInfinite(
+  const { data, error } = useSWRInfinite(
     getKey,
     (key) => apiMethod.getHome(Number(key.split("-").slice(-1)[0])),
     { revalidateFirstPage: false }
   );
 
+  console.log(data);
   if (error) return <Error />;
 
   return (
@@ -25,7 +25,7 @@ function LandingPage() {
       <Navbar absolute={true} />
       <MainMovie />
       {data &&
-        data[0]?.map((item: any, index: number) => {
+        data[0]?.map((item: HomeSection, index: number) => {
           return (
             <HomeSlider
               key={index}

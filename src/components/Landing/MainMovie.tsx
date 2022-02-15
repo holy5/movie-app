@@ -4,7 +4,6 @@ import { AiFillStar } from "react-icons/ai";
 import Genre from "../Items/Genre";
 import useSWR from "swr";
 import { apiMethod } from "../../api/apiConfig";
-import { resizeImage } from "../../Helpers/misc";
 
 import { Link } from "react-router-dom";
 import { mockData } from "../../store/index";

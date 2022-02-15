@@ -139,3 +139,23 @@ export interface SearchConfig {
     name: string;
   }[];
 }
+export interface CategoryItemType {
+  coverVerticalUrl: string;
+  domainType: number;
+  id: string;
+  name: string;
+  sort: string;
+}
+export interface HomeSliderListProps {
+  category?: number;
+  contentType: string;
+  id: number;
+  imageUrl: string;
+  jumpAddress: string;
+  jumpType: string;
+  needLogin: boolean;
+  resourceNum?: number | null;
+  resourceStatus?: number;
+  showMark: boolean;
+  title: string;
+}
