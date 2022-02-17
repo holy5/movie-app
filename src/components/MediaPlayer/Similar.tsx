@@ -12,7 +12,7 @@ const Similar: FC<SimilarProps> = ({ data }) => {
     <>
       <h1 className="text-2xl font-bold ">Similar</h1>
       {data?.likeList && data.likeList.length > 0 && (
-        <div className="flex flex-col mt-3 gap-y-2">
+        <div className="flex flex-row gap-2 mt-3 overflow-x-auto xl:flex-col snap-x snap-mandatory xl:scroll-hidden">
           {data.likeList.map((item) => {
             return (
               <Link
@@ -21,7 +21,7 @@ const Similar: FC<SimilarProps> = ({ data }) => {
               >
                 <MovieItemsVertical
                   rate={item.score}
-                  src={resizeImage(item.coverVerticalUrl, "250")}
+                  src={item.coverVerticalUrl}
                   year={item.year}
                   title={item.name}
                 />

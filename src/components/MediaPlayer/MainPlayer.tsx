@@ -7,6 +7,8 @@ import Desktop from "./Desktop";
 import { Link } from "react-router-dom";
 import Similar from "./Similar";
 import Episodes from "./Episodes";
+import { isMobile } from "../../Helpers/misc";
+import Mobile from "./Mobile";
 
 interface props {
   data?: DetailType | undefined;
@@ -30,17 +32,28 @@ function MainPlayer(props: props) {
   }`;
 
   return (
-    <div className="min-h-[100vh] xl:px-16 xl:py-12">
-      <div className="flex gap-x-5">
-        <div className="flex flex-col items-start text-text gap-y-3">
-          {sources && subtitles && playerKey && (
-            <Desktop
-              playerKey={playerKey}
-              sources={sources}
-              subtitles={subtitles}
-            />
-          )}
-          <h1 className="mt-3 text-3xl font-bold">{data?.name}</h1>
+    <div className="xl:min-h-[100vh] xl:px-16 xl:py-12 px-4">
+      <div className="flex flex-col gap-x-5 xl:flex-row">
+        <div className="flex flex-col items-start text-text gap-y-2 xl:gap-y-3">
+          {sources &&
+            subtitles &&
+            playerKey &&
+            (isMobile() ? (
+              <Mobile
+                playerKey={playerKey}
+                sources={sources}
+                subtitles={subtitles}
+              />
+            ) : (
+              <Desktop
+                playerKey={playerKey}
+                sources={sources}
+                subtitles={subtitles}
+              />
+            ))}
+          <h1 className="text-2xl font-bold xl:text-3xl xl:mt-3">
+            {data?.name}
+          </h1>
           <div className="flex gap-x-3">
             <span className="flex items-center gap-x-1">
               <AiTwotoneStar className="text-xl text-yellow" />
@@ -51,7 +64,7 @@ function MainPlayer(props: props) {
               <span>{data?.year}</span>
             </span>
           </div>
-          <div className="flex flex-wrap gap-x-2">
+          <div className="flex flex-wrap gap-2 ">
             {data?.tagList.map((tag) => {
               return (
                 <Link to={`/category/${tag.id}`} key={tag.id}>
@@ -63,13 +76,15 @@ function MainPlayer(props: props) {
 
           <div className="flex flex-col gap-y-2">
             <h1 className="text-xl font-medium">Overview</h1>
-            <p className="max-w-3xl text-sm">{data?.introduction}</p>
+            <p className="max-w-full text-sm xl:max-w-3xl">
+              {data?.introduction}
+            </p>
             {data && data?.episodeVo.length > 1 && (
               <Episodes data={data} episodeIndex={episodeIndex} />
             )}
           </div>
         </div>
-        <div className=" flex flex-col w-full text-text h-[600px] overflow-auto ">
+        <div className="xl:flex flex-col w-full text-text xl:h-[600px] xl:overflow-auto py-4 xl:py-0 ">
           {data && <Similar data={data} />}
         </div>
       </div>

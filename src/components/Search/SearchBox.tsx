@@ -37,7 +37,7 @@ const SearchBox = () => {
         <input
           type="text"
           placeholder="Search anything"
-          className="px-3 w-[88%] py-1 bg-transparent outline-none md:placeholder:text-xl md:hidden xl:inline-block xl:placeholder:text-xl "
+          className="px-3 w-[88%] py-1 bg-transparent outline-none md:placeholder:text-xl md:hidden xl:inline-block xl:placeholder:text-xl"
           onChange={(e) => setInput(e.target.value)}
           value={input}
           onKeyDown={(e) => e.stopPropagation()}
@@ -49,7 +49,7 @@ const SearchBox = () => {
         </button>
         {suggest.length > 0 && (
           <>
-            <div className="absolute flex flex-col justify-center w-[95%] rounded-md mt-2 text-lg font-medium top-full item-start bg-mainBg px-2 gap-1 py-2 max-h-[500px] overflow-auto z-50">
+            <div className="absolute flex flex-col justify-center :w-[95%] rounded-md mt-2 text-lg font-medium top-full item-start bg-mainBg px-2 gap-1 py-2 max-h-[300px] xl:max-h-[500px] overflow-auto z-50">
               {suggest.map((item, index) => {
                 return (
                   <Link

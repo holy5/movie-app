@@ -24,7 +24,7 @@ const Category = () => {
   return (
     <>
       <Navbar absolute={false} />
-      <div className="px-8 py-8 text-text">
+      <div className="px-3 py-8 xl:px-8 text-text">
         {categoryType && (
           <h1 className="text-2xl font-bold">
             Category: Search results for {categoryType.name}

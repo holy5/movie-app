@@ -31,7 +31,7 @@ const ExploreData: FC<props> = ({ params, configs, index }) => {
       apiMethod.advancedSearch(params, configs, key.split("-").slice(-1)[0]),
     { revalidateFirstPage: false }
   );
-  console.log(data);
+
   if (error) return <Error />;
 
   return (
@@ -50,7 +50,7 @@ const ExploreData: FC<props> = ({ params, configs, index }) => {
         </div>
       }
     >
-      <div className="grid grid-cols-8 mt-5 gap-x-6">
+      <div className="grid grid-cols-3 gap-3 mt-5 xl:grid-cols-8 xl:gap-x-6">
         {data
           ?.reduce((acc, cur) => [...acc, ...cur], [])
           .map((item: CategoryItemType) => {

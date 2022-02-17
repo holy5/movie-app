@@ -25,7 +25,7 @@ function MainMovie() {
   return (
     <>
       {
-        <div className="h-[100vh] relative mb-7 md:mb-12">
+        <div className="h-[100vh] relative mb-7 md:mb-12 overflow-hidden">
           <div className=" after:absolute after:inset-0 h-[100vh] after:shadow-vignette ">
             {data && (
               <LazyLoadImage
@@ -34,26 +34,29 @@ function MainMovie() {
                 alt=""
                 className="-z-[1] !w-full !h-full object-cover brightness-50"
                 effect="blur"
-                wrapperClassName="lazy-img-full"
+                wrapperClassName="lazy-img-full !object-cover"
               />
             )}
           </div>
-          <div className="absolute bottom-0 left-0 flex flex-col items-center justify-center px-4 mb-20 text-text gap-y-3 md:items-start md:gap-y-5 md:px-8 md:mb-16 lg:gap-y-3 lg:mb-10 xl:mb-20 xl:max-w-lg">
+          <div className="absolute bottom-0 left-0 flex flex-col items-start justify-center px-4 mb-20 text-text gap-y-3 md:items-start md:gap-y-5 md:px-8 md:mb-16 lg:gap-y-3 lg:mb-10 xl:mb-20 xl:max-w-lg">
             {data?.data.name ? (
-              <h1 className="text-5xl font-bold md:text-6xl xl:text-4xl lg:text-4xl">
+              <h1 className="text-4xl font-bold md:text-6xl xl:text-4xl lg:text-4xl">
                 {data?.data.name}
               </h1>
             ) : (
-              <Skeleton count={1} className="!w-[448px] !h-8 xl:max-w-lg" />
+              <Skeleton
+                count={1}
+                className="xl:!w-[448px] !w-[220px] !h-8 xl:max-w-lg"
+              />
             )}
             <div className="flex flex-row flex-wrap gap-2 text-xl md:text-2xl xl:text-sm lg:text-base ">
               {!data && (
                 <>
-                  <Skeleton className="!w-20 !h-6" />
-                  <Skeleton className="!w-20 !h-6" />
-                  <Skeleton className="!w-20 !h-6" />
-                  <Skeleton className="!w-20 !h-6" />
-                  <Skeleton className="!w-20 !h-6" />
+                  <Skeleton className="xl:!w-20 xl:!h-6 !w-16 !h-5" />
+                  <Skeleton className="xl:!w-20 xl:!h-6 !w-16 !h-5" />
+                  <Skeleton className="xl:!w-20 xl:!h-6 !w-16 !h-5" />
+                  <Skeleton className="xl:!w-20 xl:!h-6 !w-16 !h-5" />
+                  <Skeleton className="xl:!w-20 xl:!h-6 !w-16 !h-5" />
                 </>
               )}
 
@@ -90,19 +93,19 @@ function MainMovie() {
               </span>
             ) : (
               <div className="flex items-center gap-x-3 md:gap-x-5">
-                <Skeleton className="!w-16 !h-7" />
-                <Skeleton className="!w-16 !h-7" />
-                <Skeleton className="!w-16 !h-7" />
+                <Skeleton className="xl:!w-16 xl:!h-7 !w-10 !h-5" />
+                <Skeleton className="xl:!w-16 xl:!h-7 !w-10 !h-5" />
+                <Skeleton className="xl:!w-16 xl:!h-7 !w-10 !h-5" />
               </div>
             )}
-            <div className="flex flex-col items-center justify-center gap-y-2 md:items-start md:gap-y-3 lg:gap-y-1">
+            <div className="flex flex-col items-start justify-start xl:justify-center gap-y-2 md:items-start md:gap-y-3 lg:gap-y-1">
               {data ? (
-                <div className="md:text-xl md:max-w-lg md:text-justify lg:text-base text-ellipsis line-clamp-4">
+                <div className=" md:text-xl md:max-w-lg md:text-justify lg:text-base text-ellipsis line-clamp-4">
                   {data?.data.introduction}
                 </div>
               ) : (
                 <Skeleton
-                  className="!w-[448px] !lg:text-base !md:text-xl"
+                  className="xl:!w-[448px] !lg:text-base !md:text-xl !w-[calc(100vw-32px)]"
                   count={3}
                 />
               )}
@@ -115,7 +118,7 @@ function MainMovie() {
                     Watch Now
                   </Link>
                 ) : (
-                  <Skeleton className="!w-[448px] !h-10" />
+                  <Skeleton className="xl:!w-[448px] !h-10 !w-[calc(100vw-32px)]" />
                 )}
               </div>
             </div>

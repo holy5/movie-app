@@ -17,7 +17,6 @@ function LandingPage() {
     { revalidateFirstPage: false }
   );
 
-  console.log(data);
   if (error) return <Error />;
 
   return (

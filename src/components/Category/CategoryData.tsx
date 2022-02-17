@@ -43,7 +43,7 @@ const CategoryData: FC<CategoryDataProps> = ({ id }) => {
             </div>
           }
         >
-          <div className="grid grid-cols-8 mt-5 gap-x-6">
+          <div className="grid grid-cols-3 gap-2 mt-5 xl:grid-cols-8 xl:gap-x-6">
             {categoryData
               ?.reduce(
                 (acc: CategoryItemType[], cur: CategoryItemType[]) => [

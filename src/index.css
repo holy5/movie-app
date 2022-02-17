@@ -40,7 +40,7 @@ body {
 }
 
 ::-webkit-scrollbar {
-  @apply w-[10px];
+  @apply w-[5px] h-[5px];
 }
 ::-webkit-scrollbar-track {
   @apply bg-neutral-900;

@@ -24,11 +24,11 @@ function MovieItem(MovieItemProps: MovieItemsProps) {
         <LazyLoadImage
           src={MovieItemProps.imgURL}
           alt=""
-          className="object-cover rounded-t-xl aspect-auto brightness-90  h-[220px]"
+          className="object-cover rounded-t-xl aspect-auto brightness-90 h-[220px]"
           effect="blur"
         />
       )}
-      <div className="flex flex-col max-w-[100%] bg-neutral-800 px-2 py-1 rounded-b-xl md:px-4 md:py-3 xl:px-2 xl:py-1 xl:h-[70px] justify-between shadow-lg">
+      <div className="flex h-[70px] flex-col max-w-[100%] bg-neutral-800 px-2 py-1 rounded-b-xl md:px-4 md:py-3 xl:px-2 xl:py-1 justify-between shadow-lg">
         {MovieItemProps.title && (
           <h2 className="mt-1 text-base font-bold break-normal line-clamp-2 md:text-2xl lg:text-xl lg:mt-0 xl:text-lg text-text">
             {MovieItemProps.title}

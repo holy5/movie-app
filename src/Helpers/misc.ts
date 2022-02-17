@@ -3,6 +3,9 @@ export const resizeImage = (url: string, width = "", height = "") =>
 export const subtitleProxy = (url: string) =>
   `https://srt-to-vtt.vercel.app?url=${encodeURIComponent(url)}`;
 
+export const isMobile = () =>
+  /iPhone|iPad|iPod|Android/i.test(window.navigator.userAgent);
+
 export const formatVideoTime = (time: number) => {
   const date = new Date(0);
   date.setSeconds(time);

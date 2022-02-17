@@ -56,8 +56,8 @@ const HomeSlider: FC<HomeSliderProps> = ({ title, list }) => {
   };
 
   return (
-    <div className="px-4 text-text mb-7 md:px-8 md:mb-12">
-      <h1 className="mb-3 text-3xl font-bold md:text-4xl xl:text-2xl">
+    <div className="px-4 mb-4 text-text xl:mb-7 md:px-8 md:mb-12">
+      <h1 className="mb-3 text-2xl font-bold md:text-4xl xl:text-2xl">
         {title}
       </h1>
       <div>

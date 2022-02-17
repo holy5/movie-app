@@ -2,6 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 import { SearchConfig } from "../../types";
 import Error from "../UI/Error";
 import ExploreData from "./ExploreData";
+import Select from "react-select";
 
 interface AllMoviesProps {
   error: any;
@@ -20,7 +21,7 @@ const AllMovies: FC<AllMoviesProps> = ({ error, data }) => {
 
   const handleConfigChange = (name: string, value: string) => {
     const clone = JSON.parse(JSON.stringify(data[activeIndex]));
-    clone.name = value;
+    clone[name] = value;
     setConfigs(clone);
   };
 
@@ -29,7 +30,7 @@ const AllMovies: FC<AllMoviesProps> = ({ error, data }) => {
       {error && <Error />}
       {!data && <p>Loading...</p>}
       <div className="relative xl:px-8 ">
-        <div className="flex flex-row font-medium xl:mt-10 text-text xl:gap-x-4">
+        <div className="flex flex-row mt-5 font-medium xl:mt-10 text-text xl:gap-x-4 gap-x-3">
           {data?.map((item, index) => {
             return (
               <div
@@ -48,7 +49,7 @@ const AllMovies: FC<AllMoviesProps> = ({ error, data }) => {
             );
           })}
         </div>
-        <div className="flex flex-row mt-6 gap-x-3">
+        <div className="flex flex-row flex-wrap gap-3 mt-6 gap-x-3">
           {data[activeIndex]?.screeningItems.map((item, index) => {
             return (
               <select
@@ -64,7 +65,11 @@ const AllMovies: FC<AllMoviesProps> = ({ error, data }) => {
               >
                 {item.items.map((select, index) => {
                   return (
-                    <option value={select.params} key={index}>
+                    <option
+                      value={select.params}
+                      key={index}
+                      className="bg-slate-700 max-h-5"
+                    >
                       {select.name}
                     </option>
                   );
