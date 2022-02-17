@@ -21,7 +21,7 @@ const Similar: FC<SimilarProps> = ({ data }) => {
               >
                 <MovieItemsVertical
                   rate={item.score}
-                  src={item.coverVerticalUrl}
+                  src={resizeImage(item.coverVerticalUrl, "200")}
                   year={item.year}
                   title={item.name}
                 />

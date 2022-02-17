@@ -68,14 +68,14 @@ function Navbar(NavbarProps: NavbarProps) {
               height: 0,
               opacity: 0,
             }}
-            animate={{ height: "30%", opacity: 1 }}
+            animate={{ height: "35%", opacity: 1 }}
             exit={{ opacity: 0, height: 0 }}
             transition={{
               duration: 0.2,
               type: "spring",
               stiffness: 80,
             }}
-            className="fixed top-0 left-0 w-full h-[30%] bg-mainBg py-5 overflow-hidden z-10"
+            className="fixed top-0 left-0 w-full h-[35%]  bg-mainBg py-5 overflow-hidden z-10"
           >
             <div className="flex flex-col items-center w-full h-full gap-y-5">
               <div className="flex flex-row items-center justify-between w-full px-4">

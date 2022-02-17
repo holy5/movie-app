@@ -2,7 +2,6 @@ import React, { FC, useEffect, useState } from "react";
 import { SearchConfig } from "../../types";
 import Error from "../UI/Error";
 import ExploreData from "./ExploreData";
-import Select from "react-select";
 
 interface AllMoviesProps {
   error: any;

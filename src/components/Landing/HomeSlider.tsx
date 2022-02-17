@@ -74,7 +74,7 @@ const HomeSlider: FC<HomeSliderProps> = ({ title, list }) => {
               >
                 <MovieItem
                   title={movie.title}
-                  imgURL={resizeImage(movie.imageUrl, "200")}
+                  imgURL={resizeImage(movie.imageUrl, "150")}
                 />
               </Link>
             );

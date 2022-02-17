@@ -1,5 +1,5 @@
 export const resizeImage = (url: string, width = "", height = "") =>
-  `https://agvmolqooq.cloudimg.io/v7/${url}?width=${width}&height=${height}`;
+  `https://apcuevrvnq.cloudimg.io/${url}?width=${width}&height=${height}`;
 export const subtitleProxy = (url: string) =>
   `https://srt-to-vtt.vercel.app?url=${encodeURIComponent(url)}`;
 

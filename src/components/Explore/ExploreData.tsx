@@ -62,7 +62,7 @@ const ExploreData: FC<props> = ({ params, configs, index }) => {
                 key={item.id}
               >
                 <MovieItem
-                  imgURL={resizeImage(item.coverVerticalUrl, "250")}
+                  imgURL={resizeImage(item.coverVerticalUrl, "200")}
                   title={item.name}
                 />
               </Link>
