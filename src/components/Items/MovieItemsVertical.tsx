@@ -16,11 +16,11 @@ const MovieItemsVertical: FC<MovieItemsVerticalProps> = ({
   year,
 }) => {
   return (
-    <div className="flex flex-col py-2 overflow-hidden cursor-pointer gap-x-2 xl:flex-row snap-start w-[100px]">
+    <div className="flex flex-col py-2 overflow-hidden cursor-pointer gap-x-2 xl:flex-row snap-start w-[100px] xl:w-auto">
       <img
         src={src}
         alt=""
-        className="xl:w-[70px] h-[180px] inline-block rounded-[0.25rem] !flex-shrink-0"
+        className="xl:w-[70px] h-[180px] xl:h-auto xl:aspect-[10/16] inline-block rounded-[0.25rem] !flex-shrink-0"
       />
 
       <div className="flex flex-col xl:justify-start justify-between h-[96x]">
